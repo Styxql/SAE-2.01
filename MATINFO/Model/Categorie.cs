@@ -10,30 +10,46 @@ using System.Threading.Tasks;
 
 namespace MATINFO
 {
+    /// <summary>
+    /// Classe représentant une catégorie de matériel.
+    /// </summary>
     public class Categorie : Crud<Categorie>
     {
         private int id_categorie;
         private string nomcategorie;
+
+        /// <summary>
+        /// Constructeur par défaut de la classe Categorie.
+        /// </summary>
         public Categorie()
         {
 
         }
 
+        /// <summary>
+        /// Constructeur de la classe Categorie.
+        /// </summary>
+        /// <param name="id_categorie">L'identifiant de la catégorie.</param>
+        /// <param name="nomcategorie">Le nom de la catégorie.</param>
         public Categorie(int id_categorie, string nomcategorie)
         {
             this.Id_categorie = id_categorie;
             this.Nomcategorie = nomcategorie;
         }
 
-
-
+        /// <summary>
+        /// Constructeur de la classe Categorie.
+        /// </summary>
+        /// <param name="nomcategorie">Le nom de la catégorie.</param>
         public Categorie(string nomcategorie)
         {
             this.Id_categorie = id_categorie;
             this.Nomcategorie = nomcategorie;
         }
 
-
+        /// <summary>
+        /// Obtient ou définit l'identifiant de la catégorie.
+        /// </summary>
         public int Id_categorie
         {
             get
@@ -47,6 +63,9 @@ namespace MATINFO
             }
         }
 
+        /// <summary>
+        /// Obtient ou définit le nom de la catégorie.
+        /// </summary>
         public string Nomcategorie
         {
             get
@@ -60,6 +79,10 @@ namespace MATINFO
             }
         }
 
+        /// <summary>
+        /// Retourne toutes les catégories de matériel existantes.
+        /// </summary>
+        /// <returns>Une collection observable contenant toutes les catégories de matériel.</returns>
         public ObservableCollection<Categorie> FindAll()
         {
             ObservableCollection<Categorie> lesCategories = new ObservableCollection<Categorie>();
@@ -76,13 +99,20 @@ namespace MATINFO
             }
             return lesCategories;
         }
+
+        /// <summary>
+        /// Crée une nouvelle catégorie de matériel dans la base de données.
+        /// </summary>
         public void Create()
         {
-
             DataAccess accesBD = new DataAccess();
             string sql = $"insert into categorie_materiel (idcategorie, nomcategorie) values (nextval('categorie_materiel_idcategorie_seq'::regclass), '{Nomcategorie}')";
             accesBD.GetData(sql);
         }
+
+        /// <summary>
+        /// Supprime la catégorie de matériel de la base de données.
+        /// </summary>
         public void Delete()
         {
             DataAccess accesBD = new DataAccess();
@@ -90,6 +120,9 @@ namespace MATINFO
             accesBD.GetData(sql);
         }
 
+        /// <summary>
+        /// Met à jour les informations de la catégorie de matériel dans la base de données.
+        /// </summary>
         public void Update()
         {
             DataAccess accesBD = new DataAccess();
@@ -97,18 +130,22 @@ namespace MATINFO
             DataTable datas = accesBD.GetData(sql);
         }
 
-
+        /// <summary>
+        /// Recherche les catégories de matériel en fonction des critères spécifiés.
+        /// </summary>
+        /// <param name="criteres">Les critères de recherche.</param>
+        /// <returns>Une collection observable contenant les catégories de matériel correspondantes aux critères de recherche.</returns>
         public ObservableCollection<Categorie> FindBySelection(string criteres)
         {
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Lit les détails de la catégorie de matériel à partir de la base de données.
+        /// </summary>
         public void Read()
         {
             throw new NotImplementedException();
         }
-       
-
-      
     }
 }

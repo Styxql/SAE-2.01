@@ -15,17 +15,25 @@ using System.Windows.Shapes;
 
 namespace MATINFO
 {
-    //hugo a rien fais
 
+
+    /// <summary>
+    /// Logique d'interaction pour la fenêtre de la modale d'attribution.
+    /// </summary>
     public partial class ModaleAttribution : Window
     {
+        /// <summary>
+        /// Obtient ou définit les données de gestion.
+        /// </summary>
         public Gestion GestionData { get; set; }
 
+        /// <summary>
+        /// Initialise une nouvelle instance de la classe <see cref="ModaleAttribution"/>.
+        /// </summary>
         public ModaleAttribution()
         {
             InitializeComponent();
             GestionData = (Gestion)Application.Current.MainWindow.DataContext;
-
         }
 
         private void Modale_Closing(object sender, System.ComponentModel.CancelEventArgs e)

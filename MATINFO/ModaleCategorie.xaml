@@ -61,7 +61,7 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <!--  En-tête  -->
+
         <Border
             Grid.Row="0"
             Height="50"
@@ -75,7 +75,6 @@
                 Text="Gestion des catégories" />
         </Border>
 
-        <!--  Contenu principal  -->
         <Grid
             Grid.Row="1"
             Margin="10"
@@ -111,9 +110,9 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                <!--  Champ de saisie pour le nom  -->
 
-                <!--  Boutons d'action  -->
+
+
 
                 <Button
                     x:Name="btModifier"

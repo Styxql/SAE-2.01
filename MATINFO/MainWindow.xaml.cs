@@ -1,4 +1,4 @@
-﻿using MATINFO;
+﻿using MATINFO.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,30 +22,26 @@ using System.Collections.ObjectModel;
 namespace MATINFO
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Logique d'interaction pour MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
-    { 
-   
+    {
         ModaleCategorie pageCategorie = new ModaleCategorie();
         ModaleMateriel pageMateriel = new ModaleMateriel();
         ModaleAttribution pageAttribution = new ModaleAttribution();
         ModalePersonnel pagePersonnel = new ModalePersonnel();
         LoginWindow login = new LoginWindow();
 
-
         private void MainWindow_Closed(object sender, EventArgs e)
         {
             Application.Current.Shutdown();
         }
+
         public MainWindow()
         {
-            
             login.ShowDialog();
             InitializeComponent();
-         
         }
-       
 
         private async void Disconnect_Click(object sender, RoutedEventArgs e)
         {
@@ -61,66 +57,50 @@ namespace MATINFO
                 login.progressBar.IsIndeterminate = false;
 
                 login.usernameTextBox.Focus();
-                login.ShowDialog();    
+                login.ShowDialog();
                 ShowDialog();
-               
             }
-            
         }
 
         private void Categorie_Click(object sender, RoutedEventArgs e)
         {
-          
             pageCategorie.Owner = this;
             pageCategorie.ShowDialog();
-           
         }
 
         private void Personnel_Click(object sender, RoutedEventArgs e)
         {
-        
             pagePersonnel.Owner = this;
             pagePersonnel.ShowDialog();
-           
         }
 
         private void Attributions_Click(object sender, RoutedEventArgs e)
         {
             pageAttribution.Owner = this;
             pageAttribution.ShowDialog();
-          
         }
 
         private void Materiel_Click(object sender, RoutedEventArgs e)
         {
-          
             pageMateriel.Owner = this;
             pageMateriel.ShowDialog();
-            
         }
 
         private void cbMateriel_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
-            Materiel materiel =(Materiel)cbMateriel.SelectedItem;
+            Materiel materiel = (Materiel)cbMateriel.SelectedItem;
 
             if (materiel != null)
             {
-              
                 ObservableCollection<Attribution> filtreAttribution = gestion.FiltrageAttibution(materiel);
-
-                
                 lbAttributions.ItemsSource = filtreAttribution;
             }
         }
 
         private void AfficherToutesAttributions_Click(object sender, RoutedEventArgs e)
         {
-            
             cbMateriel.SelectedItem = null;
             lbAttributions.ItemsSource = gestion.LesAttributions;
         }
-
-
     }
 }

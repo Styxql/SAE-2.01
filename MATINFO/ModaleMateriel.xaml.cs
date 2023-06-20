@@ -15,18 +15,21 @@ using System.Windows.Shapes;
 
 namespace MATINFO
 {
-    /// <summary>
-    /// Logique d'interaction pour ModaleMateriel.xaml
-    /// </summary>
+
     public partial class ModaleMateriel : Window
     {
+        /// <summary>
+        /// Obtient ou définit les données de gestion.
+        /// </summary>
         public Gestion GestionData { get; set; }
 
+        /// <summary>
+        /// Initialise une nouvelle instance de la classe <see cref="ModaleMateriel"/>.
+        /// </summary>
         public ModaleMateriel()
         {
             InitializeComponent();
             GestionData = (Gestion)Application.Current.MainWindow.DataContext;
-            
         }
 
 

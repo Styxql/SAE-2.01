@@ -10,36 +10,45 @@ using System.Threading.Tasks;
 
 namespace MATINFO
 {
+    /// <summary>
+    /// Classe représentant une attribution de matériel à un personnel.
+    /// </summary>
     public class Attribution : Crud<Attribution>
     {
         private int id_personnel;
         private int id_materiel;
-        private int id_attribution;
-        private static int numAuto;
         private DateTime dateAttribution;
         private string commentaireAttribution;
         private Personnel personnel;
         private Materiel materiel;
 
-
-
-        
-
+        /// <summary>
+        /// Constructeur par défaut de la classe Attribution.
+        /// </summary>
         public Attribution()
         {
 
         }
+
+        /// <summary>
+        /// Constructeur de la classe Attribution.
+        /// </summary>
+        /// <param name="id_personnel">L'identifiant du personnel concerné par l'attribution.</param>
+        /// <param name="id_materiel">L'identifiant du matériel attribué.</param>
+        /// <param name="dateAttribution">La date d'attribution du matériel.</param>
+        /// <param name="commentaireAttribution">Le commentaire associé à l'attribution.</param>
         public Attribution(int id_personnel, int id_materiel, DateTime dateAttribution, string commentaireAttribution)
         {
-           
             this.Id_personnel = id_personnel;
             this.Id_materiel = id_materiel;
             this.DateAttribution = dateAttribution;
             this.CommentaireAttribution = commentaireAttribution;
-            Attribution.NumAuto++;
-            this.Id_attribution = numAuto;
+           
         }
-     
+
+        /// <summary>
+        /// Obtient ou définit l'identifiant du personnel concerné par l'attribution.
+        /// </summary>
         public int Id_personnel
         {
             get
@@ -53,7 +62,9 @@ namespace MATINFO
             }
         }
 
-
+        /// <summary>
+        /// Obtient ou définit l'identifiant du matériel attribué.
+        /// </summary>
         public int Id_materiel
         {
             get
@@ -67,6 +78,9 @@ namespace MATINFO
             }
         }
 
+        /// <summary>
+        /// Obtient ou définit la date d'attribution du matériel.
+        /// </summary>
         public DateTime DateAttribution
         {
             get
@@ -80,6 +94,9 @@ namespace MATINFO
             }
         }
 
+        /// <summary>
+        /// Obtient ou définit le commentaire associé à l'attribution.
+        /// </summary>
         public string CommentaireAttribution
         {
             get
@@ -93,6 +110,9 @@ namespace MATINFO
             }
         }
 
+        /// <summary>
+        /// Obtient ou définit le personnel concerné par l'attribution.
+        /// </summary>
         public Personnel Personnel
         {
             get
@@ -106,6 +126,9 @@ namespace MATINFO
             }
         }
 
+        /// <summary>
+        /// Obtient ou définit le matériel attribué.
+        /// </summary>
         public Materiel Materiel
         {
             get
@@ -119,32 +142,12 @@ namespace MATINFO
             }
         }
 
-        public int Id_attribution
-        {
-            get
-            {
-                return this.id_attribution;
-            }
+       
 
-            set
-            {
-                this.id_attribution = value;
-            }
-        }
-
-        public static int NumAuto
-        {
-            get
-            {
-                return numAuto;
-            }
-
-            set
-            {
-                numAuto = value;
-            }
-        }
-
+        /// <summary>
+        /// Retourne toutes les attributions existantes.
+        /// </summary>
+        /// <returns>Une collection observable contenant toutes les attributions.</returns>
         public ObservableCollection<Attribution> FindAll()
         {
             ObservableCollection<Attribution> lesAttributions = new ObservableCollection<Attribution>();
@@ -162,6 +165,9 @@ namespace MATINFO
             return lesAttributions;
         }
 
+        /// <summary>
+        /// Crée une nouvelle attribution dans la base de données.
+        /// </summary>
         public void Create()
         {
             DataAccess accesBD = new DataAccess();
@@ -169,24 +175,37 @@ namespace MATINFO
             accesBD.GetData(sql);
         }
 
+        /// <summary>
+        /// Supprime l'attribution de la base de données.
+        /// </summary>
         public void Delete()
         {
             DataAccess accesBD = new DataAccess();
-            string sql = $"DELETE FROM est_attribue WHERE idpersonnel = {Id_personnel} AND idmateriel = {Id_materiel} AND dateattribution = '{DateAttribution.ToString("yyyy/MM/dd")}' AND commentaireattribution = '{CommentaireAttribution}'" ;
+            string sql = $"DELETE FROM est_attribue WHERE idpersonnel = {Id_personnel} AND idmateriel = {Id_materiel} AND dateattribution = '{DateAttribution.ToString("yyyy/MM/dd")}' AND commentaireattribution = '{CommentaireAttribution}'";
             accesBD.GetData(sql);
         }
 
-       
+        /// <summary>
+        /// Recherche les attributions en fonction des critères spécifiés.
+        /// </summary>
+        /// <param name="criteres">Les critères de recherche.</param>
+        /// <returns>Une collection observable contenant les attributions correspondantes aux critères de recherche.</returns>
         public ObservableCollection<Attribution> FindBySelection(string criteres)
         {
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Lit les détails de l'attribution à partir de la base de données.
+        /// </summary>
         public void Read()
         {
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Met à jour les informations de l'attribution dans la base de données.
+        /// </summary>
         public void Update()
         {
             DataAccess accesBD = new DataAccess();
