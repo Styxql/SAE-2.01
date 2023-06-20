@@ -47,13 +47,18 @@ namespace MATINFO
         private void btAjouter_Click(object sender, RoutedEventArgs e)
         {
             string commentaire = tbCommentaire.Text;
-
-            Attribution attribution = new Attribution(((Personnel)(cbPersonnel.SelectedValue)).Id_personnel, ((Materiel)(cbMateriel.SelectedValue)).Id_materiel, dpDate.SelectedDate.Value.Date, commentaire);
-            attribution.Create();
-            gestion.Refresh();
-            lvAttributions.ItemsSource = gestion.LesAttributions;
-            tbCommentaire.Text = "";
-
+            if (string.IsNullOrEmpty(commentaire) || dpDate.SelectedDate.Value.Date == null || ((Personnel)(cbPersonnel.SelectedValue)).Id_personnel ==null || ((Materiel)(cbMateriel.SelectedValue)).Id_materiel ==null)
+            {
+                MessageBox.Show("Veuillez remplir tous les champs pour ajouter une attribution.", "Ajout", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            else
+            {
+                Attribution attribution = new Attribution(((Personnel)(cbPersonnel.SelectedValue)).Id_personnel, ((Materiel)(cbMateriel.SelectedValue)).Id_materiel, dpDate.SelectedDate.Value.Date, commentaire);
+                attribution.Create();
+                gestion.Refresh();
+                lvAttributions.ItemsSource = gestion.LesAttributions;
+                tbCommentaire.Text = "";
+            }
 
 
         }
@@ -72,7 +77,7 @@ namespace MATINFO
 
                 }
 
-                else MessageBox.Show("Veuillez de séléctionner dans la liste une attribution à supprimer", "Modification", MessageBoxButton.OK, MessageBoxImage.Warning);
+                else MessageBox.Show("Veuillez séléctionner dans la liste une attribution à supprimer", "Suppression", MessageBoxButton.OK, MessageBoxImage.Warning);
 
 
 
@@ -89,7 +94,7 @@ namespace MATINFO
 
                 if (string.IsNullOrEmpty(commentaire) || date == null)
                 {
-                    MessageBox.Show("Veuillez remplir tous les champs pour ajouter un materiel.", "Ajout", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    MessageBox.Show("Veuillez remplir tous les champs pour modifier une attribution.", "Mofification", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
                 else
                 {

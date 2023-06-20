@@ -41,13 +41,19 @@ private void Modale_Closing(object sender, System.ComponentModel.CancelEventArgs
         private void btAjouter_Click(object sender, RoutedEventArgs e)
         {
             string nomCategorie = tbSaisie.Text;
+            if (string.IsNullOrEmpty(nomCategorie))
+            {
+                MessageBox.Show("Veuillez remplir tous les champs pour ajouter une categorie.", "Modification", MessageBoxButton.OK, MessageBoxImage.Warning);
 
-            Categorie categorie = new Categorie(nomCategorie);
-            categorie.Create();
-            GestionCategorie.Refresh();
-            tbSaisie.Text = "";
-            lvCategorie.ItemsSource = gestion.LesCategories;
-
+            }
+            else
+            {
+                Categorie categorie = new Categorie(nomCategorie);
+                categorie.Create();
+                GestionCategorie.Refresh();
+                tbSaisie.Text = "";
+                lvCategorie.ItemsSource = gestion.LesCategories;
+            }
         }
 
 
@@ -63,7 +69,7 @@ private void Modale_Closing(object sender, System.ComponentModel.CancelEventArgs
               
                 if (string.IsNullOrEmpty(nouveauNom))
                 {
-                    MessageBox.Show("Veuillez remplir tous les champs pour ajouter un materiel.", "Ajout", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    MessageBox.Show("Veuillez remplir tous les champs pour modifier une categorie.", "Modification", MessageBoxButton.OK, MessageBoxImage.Warning);
 
                 }
                 else if(!string.IsNullOrEmpty(nouveauNom)) 
@@ -82,7 +88,7 @@ private void Modale_Closing(object sender, System.ComponentModel.CancelEventArgs
                 }
             }
             else
-                MessageBox.Show("Veuillez de séléctionner dans la liste un personnel à modifier", "Modification", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Veuillez séléctionner dans la liste une categorie à modifier", "Modification", MessageBoxButton.OK, MessageBoxImage.Warning);
 
         
         }
@@ -101,7 +107,7 @@ private void Modale_Closing(object sender, System.ComponentModel.CancelEventArgs
                 }
             }
 
-            else MessageBox.Show("Veuillez de séléctionner dans la liste un personnel à supprimer", "Modification", MessageBoxButton.OK, MessageBoxImage.Warning);
+            else MessageBox.Show("Veuillez séléctionner dans la liste une categorie à supprimer", "Modification", MessageBoxButton.OK, MessageBoxImage.Warning);
 
 
         }

@@ -48,7 +48,7 @@ namespace MATINFO
             string reference = txtRef.Text;
             if (string.IsNullOrEmpty(cbMateriel.Text) || string.IsNullOrEmpty(codeBarre) || string.IsNullOrEmpty(nomMat) || string.IsNullOrEmpty(reference))
             {
-                MessageBox.Show("Veuillez remplir tous les champs pour ajout un materiel.", "Ajout", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Veuillez remplir tous les champs pour ajouter un materiel.", "Ajout", MessageBoxButton.OK, MessageBoxImage.Warning);
 
             }
             else

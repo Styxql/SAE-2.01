@@ -89,12 +89,12 @@ namespace MATINFO
 
                 if (string.IsNullOrEmpty(nouveauNom) || string.IsNullOrEmpty(nouveauPrenom) || string.IsNullOrEmpty(nouveauEmail))
                 {
-                    MessageBox.Show("Veuillez remplir tous les champs pour modifier un personnel.", "Modificaion", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    MessageBox.Show("Veuillez remplir tous les champs pour modifier un personnel.", "Modification", MessageBoxButton.OK, MessageBoxImage.Warning);
 
                 }
                 else
                 {
-                                    personnelSelectionnee.Nom = nouveauNom;
+                                 personnelSelectionnee.Nom = nouveauNom;
                                     personnelSelectionnee.Prenom = nouveauPrenom;
                                     personnelSelectionnee.Email = nouveauEmail;
                                     personnelSelectionnee.Update();
@@ -126,7 +126,7 @@ namespace MATINFO
                 }
             }
 
-            else MessageBox.Show("Veuillez de séléctionner dans la liste un personnel à supprimer", "Modification", MessageBoxButton.OK, MessageBoxImage.Warning);
+            else MessageBox.Show("Veuillez de séléctionner dans la liste un personnel à supprimer", "Supperssion", MessageBoxButton.OK, MessageBoxImage.Warning);
 
         }
     }
