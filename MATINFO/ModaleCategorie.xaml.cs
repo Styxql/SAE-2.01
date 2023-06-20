@@ -8,36 +8,27 @@ using System.Windows.Controls;
 
 namespace MATINFO
 {
+    /// <summary>
+    /// Logique d'interaction pour la fenêtre de la modale de catégorie.
+    /// </summary>
     public partial class ModaleCategorie : Window
     {
+        /// <summary>
+        /// Obtient ou définit les données de gestion de catégorie.
+        /// </summary>
         public Gestion GestionCategorie { get; set; }
 
-
-
-
-
+        /// <summary>
+        /// Initialise une nouvelle instance de la classe <see cref="ModaleCategorie"/>.
+        /// </summary>
         public ModaleCategorie()
         {
             InitializeComponent();
             GestionCategorie = (Gestion)Application.Current.MainWindow.DataContext;
-
         }
+    
 
-
-
-        protected override void OnActivated(EventArgs e)
-        {
-            base.OnActivated(e);
-
-        }
-
-        protected override void OnClosed(EventArgs e)
-        {
-            base.OnClosed(e);
-
-        }
-
-        private void Modale_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+private void Modale_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             e.Cancel = true;
             this.Hide();

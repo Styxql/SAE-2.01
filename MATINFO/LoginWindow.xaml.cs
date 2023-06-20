@@ -18,40 +18,42 @@ using System.Windows.Shapes;
 namespace MATINFO
 {
     /// <summary>
-    /// Logique d'interaction pour LoginWindow.xaml
+    /// Fenêtre de connexion.
     /// </summary>
-    /// //hugo
     public partial class LoginWindow : Window
     {
         DataAccess access = new DataAccess();
+
+        /// <summary>
+        /// Initialise une nouvelle instance de la classe LoginWindow.
+        /// </summary>
         public LoginWindow()
         {
             InitializeComponent();
             usernameTextBox.Focus();
             progressBar.Visibility = Visibility.Collapsed;
         }
+
+       
         private void Login_Closed(object sender, EventArgs e)
         {
             Application.Current.Shutdown();
         }
 
-
-
+        
         private async void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            if (access.VerifyUserCredentials(usernameTextBox.Text, passwordBox.Password)
-         )
-            { 
+            if (access.VerifyUserCredentials(usernameTextBox.Text, passwordBox.Password))
+            {
                 lbInformation.Text = "";
-            progressBar.Visibility = Visibility.Visible;
-            this.lbInformation.Foreground = Brushes.Green;
-            this.lbInformation.Text = "Connexion réussie";
-            progressBar.IsIndeterminate = true;
-            await Task.Delay(2000);
-            this.Hide();
-        }
-
-           else
+                progressBar.Visibility = Visibility.Visible;
+                this.lbInformation.Foreground = Brushes.Green;
+                this.lbInformation.Text = "Connexion réussie";
+                progressBar.IsIndeterminate = true;
+                await Task.Delay(2000);
+                this.Hide();
+            }
+            else
             {
                 progressBar.IsIndeterminate = false;
                 this.lbInformation.Foreground = Brushes.Red;
@@ -61,4 +63,3 @@ namespace MATINFO
         }
     }
 }
-

@@ -61,7 +61,7 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <!--  En-tête  -->
+
         <Border
             Grid.Row="0"
             Height="50"
@@ -75,7 +75,6 @@
                 Text="Gestion des catégories" />
         </Border>
 
-        <!--  Contenu principal  -->
         <Grid
             Grid.Row="1"
             Margin="10"
@@ -111,9 +110,9 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                <!--  Champ de saisie pour le nom  -->
 
-                <!--  Boutons d'action  -->
+
+
 
                 <Button
                     x:Name="btModifier"
@@ -123,16 +122,16 @@
                     Margin="120,0,120,0"
                     VerticalAlignment="Top"
                     Click="btModifier_Click"
-                    Content="Modifier" 
-                    Style="{StaticResource ButtonStyle}"/>
+                    Content="Modifier"
+                    Style="{StaticResource ButtonStyle}" />
                 <Button
                     x:Name="btSupprimer"
                     Grid.RowSpan="3"
                     Width="100"
                     Margin="240,0,0,0"
                     Click="btSupprimer_Click"
-                    Content="Supprimer" 
-                    Style="{StaticResource ButtonStyle}"/>
+                    Content="Supprimer"
+                    Style="{StaticResource ButtonStyle}" />
 
                 <Button
                     x:Name="btAjouter"
@@ -140,19 +139,18 @@
                     Click="btAjouter_Click"
                     Content="Ajouter"
                     IsDefault="True"
-                    RenderTransformOrigin="0.579,0.602" 
-                    Style="{StaticResource ButtonStyle}"/>
-                <TextBox DataContext="{Binding Path=SelectedItem, ElementName=lvCategorie}"
+                    RenderTransformOrigin="0.579,0.602"
+                    Style="{StaticResource ButtonStyle}" />
+                <TextBox
                     x:Name="tbSaisie"
                     Grid.Row="2"
                     Width="264"
                     Margin="0,17,0,-37"
                     HorizontalAlignment="Center"
-                  
+                    DataContext="{Binding Path=SelectedItem, ElementName=lvCategorie}"
                     Text="{Binding Nomcategorie}"
                     TextAlignment="Center"
-                    TextWrapping="Wrap"
-                         />
+                    TextWrapping="Wrap" />
 
             </Grid>
         </Grid>

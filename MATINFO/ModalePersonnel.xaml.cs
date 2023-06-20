@@ -21,36 +21,32 @@ namespace MATINFO
     {
         private Gestion gestionPersonnel;
 
-
+        /// <summary>
+        /// Obtient ou définit les données de gestion du personnel.
+        /// </summary>
         public Gestion GestionPersonnel
         {
             get
             {
                 return this.gestionPersonnel;
             }
-
             set
             {
                 this.gestionPersonnel = value;
             }
         }
-        protected override void OnActivated(EventArgs e)
-        {
-            base.OnActivated(e);
 
-        }
-
-        protected override void OnClosed(EventArgs e)
-        {
-            base.OnClosed(e);
-
-        }
+        /// <summary>
+        /// Initialise une nouvelle instance de la classe <see cref="ModalePersonnel"/>.
+        /// </summary>
         public ModalePersonnel()
         {
             InitializeComponent();
             GestionPersonnel = (Gestion)Application.Current.MainWindow.DataContext;
         }
-        private void Modale_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+    
+
+    private void Modale_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             e.Cancel = true;
             Hide();

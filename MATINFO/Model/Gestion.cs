@@ -7,23 +7,46 @@ using System.Threading.Tasks;
 
 namespace MATINFO.Model
 {
+    /// <summary>
+    /// Classe de gestion principale pour la manipulation des données.
+    /// </summary>
     public class Gestion
     {
+        /// <summary>
+        /// Obtient ou définit la collection des catégories.
+        /// </summary>
         public ObservableCollection<Categorie> LesCategories { get; set; }
+
+        /// <summary>
+        /// Obtient ou définit la collection des personnels.
+        /// </summary>
         public ObservableCollection<Personnel> LesPersonnels { get; set; }
+
+        /// <summary>
+        /// Obtient ou définit la collection des matériels.
+        /// </summary>
         public ObservableCollection<Materiel> LesMateriels { get; set; }
+
+        /// <summary>
+        /// Obtient ou définit la collection des attributions.
+        /// </summary>
         public ObservableCollection<Attribution> LesAttributions { get; set; }
 
-
-
+        /// <summary>
+        /// Constructeur de la classe Gestion.
+        /// </summary>
         public Gestion()
         {
             Refresh();
         }
 
+        /// <summary>
+        /// Effectue un filtrage des attributions en fonction du matériel spécifié.
+        /// </summary>
+        /// <param name="materiel">Le matériel pour lequel effectuer le filtrage des attributions.</param>
+        /// <returns>Retourne une collection d'attributions filtrées.</returns>
         public ObservableCollection<Attribution> FiltrageAttibution(Materiel materiel)
         {
-            
             ObservableCollection<Attribution> filtreAttributions = new ObservableCollection<Attribution>(
                 LesAttributions.Where(attribution => attribution.Materiel == materiel)
             );
@@ -31,6 +54,9 @@ namespace MATINFO.Model
             return filtreAttributions;
         }
 
+        /// <summary>
+        /// Actualise les collections de données en récupérant les données à partir des sources.
+        /// </summary>
         public void Refresh()
         {
             Categorie c = new Categorie();
@@ -53,7 +79,5 @@ namespace MATINFO.Model
                 attribution.Personnel = LesPersonnels.First(p => p.Id_personnel == attribution.Id_personnel);
             }
         }
-
     }
 }
-
