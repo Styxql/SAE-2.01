@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 
 namespace MATINFO
 {
+    //hugo a rien fais
 
     public partial class ModaleAttribution : Window
     {
