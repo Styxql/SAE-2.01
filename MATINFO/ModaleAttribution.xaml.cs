@@ -77,15 +77,29 @@ namespace MATINFO
             {
                 Attribution attribution = (Attribution)lvAttributions.SelectedItem;
                 string commentaire = tbCommentaire.Text;
-                DateTime date = dpDate.SelectedDate.Value;
-                attribution.CommentaireAttribution = commentaire;
-                attribution.DateAttribution = date;
-                attribution.Update();
-                gestion.Refresh();
-                lvAttributions.ItemsSource = gestion.LesAttributions;
-                tbCommentaire.Text = "";
+                DateTime? date = dpDate.SelectedDate;
 
+                if (string.IsNullOrEmpty(commentaire) || date == null)
+                {
+                    MessageBox.Show("Veuillez remplir tous les champs pour ajouter un materiel.", "Ajout", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
+                else
+                {
+                    attribution.CommentaireAttribution = commentaire;
+
+                    attribution.DateAttribution = date.Value;
+
+                    attribution.Update();
+                    gestion.Refresh();
+                    lvAttributions.ItemsSource = gestion.LesAttributions;
+                    tbCommentaire.Text = "";
+                }
             }
+            else
+            {
+                MessageBox.Show("Veuillez sélectionner dans la liste une attribution à modifier", "Modification", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+
         }
     }
 }
