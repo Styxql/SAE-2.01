@@ -60,24 +60,25 @@
 
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <StackPanel  DataContext="{Binding Path=SelectedItem, ElementName=lvMateriel}" Grid.Row="1" Orientation="Horizontal">
+        <StackPanel
+            Grid.Row="1"
+            DataContext="{Binding Path=SelectedItem, ElementName=lvMateriel}"
+            Orientation="Horizontal">
             <TextBox
                 x:Name="txtCodeBarre"
                 Width="90"
                 Height="auto"
                 Margin="10"
                 VerticalAlignment="Top"
-              
                 Text="{Binding Code_barre}" />
 
-            
+
             <TextBox
                 x:Name="txtRef"
                 Width="90"
                 Height="auto"
                 Margin="10"
                 VerticalAlignment="Top"
-             
                 Text="{Binding Ref_constructeur}" />
             <TextBox
                 x:Name="txtNomMat"
@@ -85,17 +86,17 @@
                 Height="auto"
                 Margin="10"
                 VerticalAlignment="Top"
-            
                 Text="{Binding Nom_materiel}" />
         </StackPanel>
-        <ComboBox Grid.Row="1"
-                Margin="0,10,261,160"
-                x:Name="cbMateriel"
-                Height="20"
-          
-                
-                ItemsSource="{Binding LesCategories}"
-                Text="Categorie" HorizontalAlignment="Right" Width="89">
+        <ComboBox
+            x:Name="cbMateriel"
+            Grid.Row="1"
+            Width="89"
+            Height="20"
+            Margin="0,10,261,160"
+            HorizontalAlignment="Right"
+            ItemsSource="{Binding LesCategories}"
+            Text="Categorie">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock x:Name="tblock" Text="{Binding Nomcategorie}" />
@@ -117,13 +118,10 @@
         </Border>
 
         <!--  Contenu principal  -->
-        <Grid
-            Grid.Row="1"
-           Margin="10">
+        <Grid Grid.Row="1" Margin="10">
 
             <ListView
                 x:Name="lvMateriel"
-               
                 Width="510"
                 Height="125"
                 Margin="0,45,0,0"
@@ -146,7 +144,10 @@
                             Width="auto"
                             DisplayMemberBinding="{Binding Nom_materiel}"
                             Header="Reference" />
-                        <GridViewColumn Width="auto" DisplayMemberBinding="{Binding Categorie.Nomcategorie}" Header="Categorie"/>
+                        <GridViewColumn
+                            Width="auto"
+                            DisplayMemberBinding="{Binding Categorie.Nomcategorie}"
+                            Header="Categorie" />
 
 
                     </GridView>
@@ -173,9 +174,9 @@
                 </Grid.RowDefinitions>
                 <StackPanel
                     Grid.Row="1"
-                
+                    Grid.ColumnSpan="3"
                     Margin="97,-10,33,2"
-                    Orientation="Horizontal" Grid.ColumnSpan="3" />
+                    Orientation="Horizontal" />
                 <Button
                     x:Name="btAjouter"
                     Grid.RowSpan="2"
@@ -185,26 +186,27 @@
                     Content="Ajouter"
                     IsDefault="True"
                     RenderTransformOrigin="0.579,0.602"
-                    Style="{StaticResource ButtonStyle}"/>
+                    Style="{StaticResource ButtonStyle}" />
                 <Button
                     x:Name="btSupprimer"
                     Grid.Row="1"
                     Grid.Column="2"
                     Margin="10,61,12,-77"
+                    Click="btSupprimer_Click"
                     Content="Supprimer"
                     IsDefault="True"
                     RenderTransformOrigin="0.579,0.602"
-                    Click="btSupprimer_Click"
-                    Style="{StaticResource ButtonStyle}"/>
+                    Style="{StaticResource ButtonStyle}" />
                 <Button
                     x:Name="btModifier"
                     Grid.Row="1"
                     Grid.Column="2"
                     Margin="10,22,12,-39"
+                    Click="btModifier_Click"
                     Content="Modifier"
                     IsDefault="True"
-                    RenderTransformOrigin="0.579,0.602" Click="btModifier_Click" 
-                    Style="{StaticResource ButtonStyle}"/>
+                    RenderTransformOrigin="0.579,0.602"
+                    Style="{StaticResource ButtonStyle}" />
             </Grid>
 
         </Grid>

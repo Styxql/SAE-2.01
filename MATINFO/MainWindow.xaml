@@ -146,18 +146,29 @@
             </StackPanel>
 
             <!--  Liste des attributions  -->
-            <StackPanel  
-               ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                ScrollViewer.VerticalScrollBarVisibility="Visible" Grid.Column="1" Margin="0,0,10,0" Height="264"  Width="390">
+            <StackPanel
+                Grid.Column="1"
+                Width="390"
+                Height="264"
+                Margin="0,0,10,0"
+                ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                ScrollViewer.VerticalScrollBarVisibility="Visible">
                 <TextBlock
                     Width="111"
                     Margin="0,0,0,10"
                     FontSize="18"
                     FontWeight="Bold"
                     Text="Attributions" />
-                <StackPanel  Margin="0,0,0,10" Orientation="Horizontal">
-                    <Button Margin="0,0,10,0" Content="Afficher toutes les attributions" Click="AfficherToutesAttributions_Click" />
-                    <ComboBox SelectionChanged="cbMateriel_SelectionChanged" x:Name="cbMateriel" ItemsSource="{Binding LesMateriels}" Width="200">
+                <StackPanel Margin="0,0,0,10" Orientation="Horizontal">
+                    <Button
+                        Margin="0,0,10,0"
+                        Click="AfficherToutesAttributions_Click"
+                        Content="Afficher toutes les attributions" />
+                    <ComboBox
+                        x:Name="cbMateriel"
+                        Width="200"
+                        ItemsSource="{Binding LesMateriels}"
+                        SelectionChanged="cbMateriel_SelectionChanged">
 
 
                         <ComboBox.ItemTemplate>
@@ -169,8 +180,12 @@
                         <!--  Ajoutez ici d'autres ComboBoxItem pour représenter d'autres catégories  -->
                     </ComboBox>
                 </StackPanel>
-                <ListBox x:Name="lbAttributions" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                ScrollViewer.VerticalScrollBarVisibility="Visible" ItemsSource="{Binding LesAttributions}" Height="177">
+                <ListBox
+                    x:Name="lbAttributions"
+                    Height="177"
+                    ItemsSource="{Binding LesAttributions}"
+                    ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                    ScrollViewer.VerticalScrollBarVisibility="Visible">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <ListBoxItem>

@@ -106,7 +106,7 @@
 
                         <GridViewColumn
                             Width="auto"
-                            DisplayMemberBinding="{Binding Path=DateAttribution,StringFormat=dd/MM/yyyy}"
+                            DisplayMemberBinding="{Binding Path=DateAttribution, StringFormat=dd/MM/yyyy}"
                             Header="Date" />
                         <GridViewColumn
                             Width="auto"
@@ -130,12 +130,12 @@
                 <!--  Boutons d'action  -->
                 <Button
                     x:Name="btAjouter"
+                    Grid.RowSpan="3"
                     Margin="450,0,10,-9"
                     Click="btAjouter_Click"
                     Content="Ajouter"
-                    IsDefault="True" 
-                    Style="{StaticResource ButtonStyle}" Grid.RowSpan="3" 
-                    />
+                    IsDefault="True"
+                    Style="{StaticResource ButtonStyle}" />
 
 
                 <Button
@@ -144,40 +144,40 @@
                     Width="100"
                     Margin="0,56,10,-76"
                     HorizontalAlignment="Right"
+                    Click="btSupprimer_Click"
                     Content="Supprimer"
-                    IsDefault="True" Click="btSupprimer_Click"
-                    Style="{StaticResource ButtonStyle}"/>
+                    IsDefault="True"
+                    Style="{StaticResource ButtonStyle}" />
                 <Button
                     x:Name="btModifier"
                     Grid.Row="2"
                     Width="100"
                     Margin="0,21,10,-41"
                     HorizontalAlignment="Right"
+                    Click="btModifier_Click"
                     Content="Modifier"
-                    IsDefault="True" Click="btModifier_Click"
-                     Style="{StaticResource ButtonStyle}"/>
+                    IsDefault="True"
+                    Style="{StaticResource ButtonStyle}" />
             </Grid>
         </Grid>
-        <StackPanel Grid.Row="1" DataContext="{Binding Path=SelectedItem, ElementName=lvAttributions}"
->
+        <StackPanel Grid.Row="1" DataContext="{Binding Path=SelectedItem, ElementName=lvAttributions}">
             <DatePicker
-            x:Name="dpDate"
-            Grid.Row="1"
-            Width="85"
-            Height="24"
-            Margin="-20,9,0,0" 
-             SelectedDate="{Binding DateAttribution}"/>
+                x:Name="dpDate"
+                Grid.Row="1"
+                Width="85"
+                Height="24"
+                Margin="-20,9,0,0"
+                SelectedDate="{Binding DateAttribution}" />
             <TextBox
-                    x:Name="tbCommentaire"
-                    Grid.RowSpan="3"
-                    Width="85"
-                    Height="17"
-                    Margin="332,-21,0,0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    Text="{Binding CommentaireAttribution}"
-                    TextWrapping="Wrap" 
-                    />
+                x:Name="tbCommentaire"
+                Grid.RowSpan="3"
+                Width="85"
+                Height="17"
+                Margin="332,-21,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Text="{Binding CommentaireAttribution}"
+                TextWrapping="Wrap" />
         </StackPanel>
         <ComboBox
             x:Name="cbMateriel"
@@ -202,10 +202,12 @@
             x:Name="cbPersonnel"
             Grid.Row="1"
             Width="84"
+            Height="24"
             Margin="121,9,0,0"
             HorizontalAlignment="Left"
+            VerticalAlignment="Top"
             IsReadOnly="True"
-            ItemsSource="{Binding Path=LesPersonnels}" Height="24" VerticalAlignment="Top">
+            ItemsSource="{Binding Path=LesPersonnels}">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <ComboBoxItem Content="{Binding Nom}" />
