@@ -20,6 +20,7 @@ namespace MATINFO
     /// <summary>
     /// Logique d'interaction pour LoginWindow.xaml
     /// </summary>
+    /// //hugo
     public partial class LoginWindow : Window
     {
         DataAccess access = new DataAccess();
