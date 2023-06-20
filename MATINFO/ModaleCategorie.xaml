@@ -85,6 +85,7 @@
             </Grid.ColumnDefinitions>
 
             <ListView
+                
                 x:Name="lvCategorie"
                 Grid.Column="0"
                 Width="200"
@@ -92,7 +93,7 @@
                 VerticalAlignment="Top"
                 ItemsSource="{Binding Path=LesCategories}"
                 ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                ScrollViewer.VerticalScrollBarVisibility="Visible">
+                ScrollViewer.VerticalScrollBarVisibility="Visible" MouseDoubleClick="lvCategorie_MouseDoubleClick">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn

@@ -118,5 +118,10 @@ namespace MATINFO
             }
 
         }
+
+        private void lvAttributions_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            lvAttributions.SelectedItem = null;
+        }
     }
 }

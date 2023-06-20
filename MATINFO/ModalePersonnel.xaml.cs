@@ -129,5 +129,10 @@ namespace MATINFO
             else MessageBox.Show("Veuillez de séléctionner dans la liste un personnel à supprimer", "Supperssion", MessageBoxButton.OK, MessageBoxImage.Warning);
 
         }
+
+        private void lvPersonnel_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            lvPersonnel.SelectedItem = null;
+        }
     }
 }

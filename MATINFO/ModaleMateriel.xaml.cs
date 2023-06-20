@@ -133,5 +133,10 @@ namespace MATINFO
             
             
         }
+
+        private void lvMateriel_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            lvMateriel.SelectedItem = null;
+        }
     }
 }

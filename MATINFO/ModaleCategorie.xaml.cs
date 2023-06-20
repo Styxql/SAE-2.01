@@ -111,6 +111,11 @@ private void Modale_Closing(object sender, System.ComponentModel.CancelEventArgs
 
 
         }
+
+        private void lvCategorie_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            lvCategorie.SelectedItem = null;
+        }
     }
 
 

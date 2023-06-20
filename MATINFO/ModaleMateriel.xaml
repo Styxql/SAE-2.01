@@ -129,7 +129,7 @@
                 VerticalAlignment="Top"
                 ItemsSource="{Binding Path=LesMateriels}"
                 ScrollViewer.HorizontalScrollBarVisibility="Auto"
-                ScrollViewer.VerticalScrollBarVisibility="Visible">
+                ScrollViewer.VerticalScrollBarVisibility="Visible" MouseDoubleClick="lvMateriel_MouseDoubleClick">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn

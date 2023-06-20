@@ -119,7 +119,7 @@
                 </StackPanel>
             </Grid>
 
-            <ListView
+            <ListView 
                 x:Name="lvPersonnel"
                 Grid.Column="0"
                 Grid.ColumnSpan="4"
@@ -129,7 +129,7 @@
                 VerticalAlignment="Center"
                 ItemsSource="{Binding Path=LesPersonnels}"
                 ScrollViewer.HorizontalScrollBarVisibility="Auto"
-                ScrollViewer.VerticalScrollBarVisibility="Visible">
+                ScrollViewer.VerticalScrollBarVisibility="Visible" MouseDoubleClick="lvPersonnel_MouseDoubleClick">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn

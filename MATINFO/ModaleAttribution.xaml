@@ -92,7 +92,8 @@
                 VerticalAlignment="Top"
                 ItemsSource="{Binding Path=LesAttributions}"
                 ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                ScrollViewer.VerticalScrollBarVisibility="Visible">
+                ScrollViewer.VerticalScrollBarVisibility="Visible" MouseDoubleClick="lvAttributions_MouseDoubleClick"
+                >
                 
                 <ListView.View>
                     <GridView>
