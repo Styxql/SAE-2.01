@@ -11,6 +11,7 @@
     Height="350"
     MinWidth="710"
     MinHeight="350"
+	ResizeMode="NoResize"
     Closed="MainWindow_Closed"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
