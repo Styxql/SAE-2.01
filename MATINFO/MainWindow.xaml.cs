@@ -83,6 +83,9 @@ namespace MATINFO
         private void Materiel_Click(object sender, RoutedEventArgs e)
         {
             pageMateriel.Owner = this;
+            if (pageMateriel.cbFiltre.SelectedIndex == -1)
+                pageMateriel.lvMateriel.ItemsSource = null;
+
             pageMateriel.ShowDialog();
         }
 

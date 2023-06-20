@@ -1,6 +1,7 @@
 ﻿using MATINFO.Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,6 +37,7 @@ namespace MATINFO
         private void Modale_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             e.Cancel = true;
+            cbFiltre.SelectedIndex = -1;
             this.Hide();
         }
 
@@ -60,12 +62,23 @@ namespace MATINFO
                 txtCodeBarre.Text = "";
                 txtNomMat.Text = "";
                 txtRef.Text = "";
+                cbMateriel.SelectedItem = null;
 
             }
             
         }
 
+        private void cbFiltre_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Categorie categorie = (Categorie)cbFiltre.SelectedItem;
 
+            if (categorie != null)
+            {
+                ObservableCollection<Materiel> filtreCategorie = gestion.FiltrageMateriel(categorie);
+                lvMateriel.ItemsSource = filtreCategorie;
+            }
+            
+        }
 
         private void btModifier_Click(object sender, RoutedEventArgs e)
         {
@@ -94,6 +107,7 @@ namespace MATINFO
                     txtCodeBarre.Text = "";
                     txtNomMat.Text = "";
                     txtRef.Text = "";
+                    cbMateriel.SelectedItem = null;
                 }
             }
         }

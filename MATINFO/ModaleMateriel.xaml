@@ -103,7 +103,7 @@
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
-        <!--  En-tête  -->
+
         <Border
             Grid.Row="0"
             Height="50"
@@ -117,7 +117,7 @@
                 Text="Gestion du matériel" />
         </Border>
 
-        <!--  Contenu principal  -->
+
         <Grid Grid.Row="1" Margin="10">
 
             <ListView
@@ -157,7 +157,7 @@
 
 
 
-            <!--  Formulaire de gestion  -->
+
             <Grid
                 Grid.Column="1"
                 Grid.ColumnSpan="2"
@@ -172,16 +172,12 @@
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
-                <StackPanel
-                    Grid.Row="1"
-                    Grid.ColumnSpan="3"
-                    Margin="97,-10,33,2"
-                    Orientation="Horizontal" />
+                
                 <Button
                     x:Name="btAjouter"
                     Grid.RowSpan="2"
-                    Grid.Column="2"
-                    Margin="10,-10,12,-2"
+                    Grid.Column="1"
+                    Margin="10,6,12,178"
                     Click="btAjouter_Click"
                     Content="Ajouter"
                     IsDefault="True"
@@ -190,8 +186,8 @@
                 <Button
                     x:Name="btSupprimer"
                     Grid.Row="1"
-                    Grid.Column="2"
-                    Margin="10,61,12,-77"
+                    Grid.Column="1"
+                    Margin="10,66,10,125"
                     Click="btSupprimer_Click"
                     Content="Supprimer"
                     IsDefault="True"
@@ -200,13 +196,29 @@
                 <Button
                     x:Name="btModifier"
                     Grid.Row="1"
-                    Grid.Column="2"
-                    Margin="10,22,12,-39"
+                    Grid.Column="1"
+                    Margin="10,39,12,148"
                     Click="btModifier_Click"
                     Content="Modifier"
                     IsDefault="True"
                     RenderTransformOrigin="0.579,0.602"
                     Style="{StaticResource ButtonStyle}" />
+
+                <ComboBox
+            x:Name="cbFiltre"
+            Grid.Row="1"
+            Height="20"
+            SelectionChanged="cbFiltre_SelectionChanged"
+          
+            ItemsSource="{Binding LesCategories}"
+            Text="Categorie" Grid.Column="1" Margin="10,90,12,100">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock x:Name="tblock" Text="{Binding Nomcategorie}" />
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+
             </Grid>
 
         </Grid>

@@ -61,7 +61,7 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <!--  En-tête  -->
+      
         <Border
             Grid.Row="0"
             Height="50"
@@ -75,14 +75,14 @@
                 Text="Gestion des attributions" />
         </Border>
 
-        <!--  Contenu principal  -->
+      
         <Grid Grid.Row="1" Margin="10">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <!--  Liste des catégories  -->
+         
             <ListView
                 x:Name="lvAttributions"
                 Grid.Column="0"
@@ -93,6 +93,7 @@
                 ItemsSource="{Binding Path=LesAttributions}"
                 ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                 ScrollViewer.VerticalScrollBarVisibility="Visible">
+                
                 <ListView.View>
                     <GridView>
                         <GridViewColumn
@@ -116,7 +117,7 @@
                 </ListView.View>
             </ListView>
 
-            <!--  Formulaire de gestion  -->
+      
             <Grid Grid.Column="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
@@ -124,10 +125,7 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                <!--  Champ de saisie pour le nom  -->
-
-
-                <!--  Boutons d'action  -->
+                
                 <Button
                     x:Name="btAjouter"
                     Grid.RowSpan="3"

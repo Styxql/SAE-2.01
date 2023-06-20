@@ -58,6 +58,8 @@ namespace MATINFO
                 gestion.Refresh();
                 lvAttributions.ItemsSource = gestion.LesAttributions;
                 tbCommentaire.Text = "";
+                cbMateriel.SelectedItem = null;
+                cbPersonnel.SelectedItem = null;
             }
 
 
@@ -106,6 +108,8 @@ namespace MATINFO
                     gestion.Refresh();
                     lvAttributions.ItemsSource = gestion.LesAttributions;
                     tbCommentaire.Text = "";
+                    cbMateriel.SelectedItem = null;
+                    cbPersonnel.SelectedItem = null;
                 }
             }
             else

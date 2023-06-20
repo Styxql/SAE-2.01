@@ -54,6 +54,17 @@ namespace MATINFO.Model
             return filtreAttributions;
         }
 
+        public ObservableCollection<Materiel> FiltrageMateriel(Categorie categorie)
+        {
+            ObservableCollection<Materiel> filtreMateriel = new ObservableCollection<Materiel>(
+                LesMateriels.Where(materiel => materiel.Categorie == categorie)
+            );
+
+            return filtreMateriel;
+        }
+
+
+
         /// <summary>
         /// Actualise les collections de données en récupérant les données à partir des sources.
         /// </summary>
