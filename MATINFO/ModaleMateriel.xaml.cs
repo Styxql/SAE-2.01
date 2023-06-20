@@ -43,7 +43,13 @@ namespace MATINFO
             string codeBarre = txtCodeBarre.Text;
             string nomMat = txtNomMat.Text;
             string reference = txtRef.Text;
-            
+            if (string.IsNullOrEmpty(cbMateriel.Text) || string.IsNullOrEmpty(codeBarre) || string.IsNullOrEmpty(nomMat) || string.IsNullOrEmpty(reference))
+            {
+                MessageBox.Show("Veuillez remplir tous les champs pour ajout un materiel.", "Ajout", MessageBoxButton.OK, MessageBoxImage.Warning);
+
+            }
+            else
+            {
                 Materiel materiel = new Materiel(((Categorie)(cbMateriel.SelectedValue)).Id_categorie, codeBarre, reference, nomMat);
                 materiel.Create();
                 gestion.Refresh();
@@ -51,8 +57,8 @@ namespace MATINFO
                 txtCodeBarre.Text = "";
                 txtNomMat.Text = "";
                 txtRef.Text = "";
-                
-            
+
+            }
             
         }
 
@@ -67,18 +73,25 @@ namespace MATINFO
                 string nomMat = txtNomMat.Text;
                 string reference = txtRef.Text;
 
+                if (string.IsNullOrEmpty(codeBarre) || string.IsNullOrEmpty(nomMat) || string.IsNullOrEmpty(reference))
+                {
+                    MessageBox.Show("Veuillez remplir tous les champs pour modifier un materiel.", "Modificaion", MessageBoxButton.OK, MessageBoxImage.Warning);
 
-                materiel.Nom_materiel = nomMat;
-                materiel.Code_barre = codeBarre;
-                materiel.Ref_constructeur = reference;
-                materiel.Id_categorie = ((Categorie)(cbMateriel.SelectedValue)).Id_categorie;
-                materiel.Update();
-                gestion.Refresh();
-                lvMateriel.ItemsSource = gestion.LesMateriels;
+                }
+                else
+                {
+                    materiel.Nom_materiel = nomMat;
+                    materiel.Code_barre = codeBarre;
+                    materiel.Ref_constructeur = reference;
+                    materiel.Id_categorie = ((Categorie)(cbMateriel.SelectedValue)).Id_categorie;
+                    materiel.Update();
+                    gestion.Refresh();
+                    lvMateriel.ItemsSource = gestion.LesMateriels;
 
-                txtCodeBarre.Text = "";
-                txtNomMat.Text = "";
-                txtRef.Text = "";
+                    txtCodeBarre.Text = "";
+                    txtNomMat.Text = "";
+                    txtRef.Text = "";
+                }
             }
         }
         private void btSupprimer_Click(object sender, RoutedEventArgs e)
