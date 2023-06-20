@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 
 namespace MATINFO
 {
-    
+
     public partial class ModaleAttribution : Window
     {
         public Gestion GestionData { get; set; }
@@ -37,8 +37,8 @@ namespace MATINFO
 
         private void btAjouter_Click(object sender, RoutedEventArgs e)
         {
-            string commentaire= tbCommentaire.Text;
-           
+            string commentaire = tbCommentaire.Text;
+
             Attribution attribution = new Attribution(((Personnel)(cbPersonnel.SelectedValue)).Id_personnel, ((Materiel)(cbMateriel.SelectedValue)).Id_materiel, dpDate.SelectedDate.Value.Date, commentaire);
             attribution.Create();
             gestion.Refresh();
@@ -54,7 +54,7 @@ namespace MATINFO
             if (lvAttributions.SelectedItem != null)
             {
                 Attribution attributionSelectionne = (Attribution)lvAttributions.SelectedItem;
-                MessageBoxResult resulat = MessageBox.Show("Etes vous sur de vouloir supprimer : " + attributionSelectionne.Personnel.Nom+" "+ attributionSelectionne.Materiel.Nom_materiel, "Suppression", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                MessageBoxResult resulat = MessageBox.Show("Etes vous sur de vouloir supprimer : " + attributionSelectionne.Personnel.Nom + " " + attributionSelectionne.Materiel.Nom_materiel, "Suppression", MessageBoxButton.YesNo, MessageBoxImage.Warning);
                 if (resulat == MessageBoxResult.Yes)
                 {
                     attributionSelectionne.Delete();
@@ -63,10 +63,10 @@ namespace MATINFO
 
                 }
 
-            else MessageBox.Show("Veuillez de séléctionner dans la liste une attribution à supprimer", "Modification", MessageBoxButton.OK, MessageBoxImage.Warning);
+                else MessageBox.Show("Veuillez de séléctionner dans la liste une attribution à supprimer", "Modification", MessageBoxButton.OK, MessageBoxImage.Warning);
 
-          
-            
+
+
             }
         }
 
@@ -76,14 +76,14 @@ namespace MATINFO
             {
                 Attribution attribution = (Attribution)lvAttributions.SelectedItem;
                 string commentaire = tbCommentaire.Text;
-                DateTime date=dpDate.SelectedDate.Value;
+                DateTime date = dpDate.SelectedDate.Value;
                 attribution.CommentaireAttribution = commentaire;
                 attribution.DateAttribution = date;
                 attribution.Update();
                 gestion.Refresh();
-                lvAttributions.ItemsSource=gestion.LesAttributions;
+                lvAttributions.ItemsSource = gestion.LesAttributions;
                 tbCommentaire.Text = "";
-                
+
             }
         }
     }

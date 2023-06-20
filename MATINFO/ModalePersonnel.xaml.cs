@@ -56,23 +56,32 @@ namespace MATINFO
             Hide();
            
         }
-        
+
         private void btAjouter_Click(object sender, RoutedEventArgs e)
         {
             string nom = txtNom.Text;
             string prenom = txtPrenom.Text;
             string email = txtEmail.Text;
 
-            Personnel personnel = new Personnel(nom, prenom, email);
-            personnel.Create();
-            gestion.Refresh();
-            lvPersonnel.ItemsSource = gestion.LesPersonnels;
-            txtNom.Text = "";
-            txtPrenom.Text = "";
-            txtEmail.Text = "";
+            if (string.IsNullOrEmpty(nom) || string.IsNullOrEmpty(prenom) || string.IsNullOrEmpty(email))
+            {
+                MessageBox.Show("Veuillez remplir tous les champs pour ajouter un personnel.", "Ajout", MessageBoxButton.OK, MessageBoxImage.Warning);
 
-            
+            }
+            else
+            {
+
+                Personnel personnel = new Personnel(nom, prenom, email);
+
+                personnel.Create();
+                gestion.Refresh();
+                lvPersonnel.ItemsSource = gestion.LesPersonnels;
+                txtNom.Text = "";
+                txtPrenom.Text = "";
+                txtEmail.Text = "";
+            }
         }
+
         private void btModifier_Click(object sender, RoutedEventArgs e)
         {
             if (lvPersonnel.SelectedItem != null)
@@ -82,18 +91,25 @@ namespace MATINFO
                 string nouveauPrenom = txtPrenom.Text;
                 string nouveauEmail = txtEmail.Text;
 
-               
-                personnelSelectionnee.Nom = nouveauNom;
-                personnelSelectionnee.Prenom = nouveauPrenom;
-                personnelSelectionnee.Email = nouveauEmail;
+                if (string.IsNullOrEmpty(nouveauNom) || string.IsNullOrEmpty(nouveauPrenom) || string.IsNullOrEmpty(nouveauEmail))
+                {
+                    MessageBox.Show("Veuillez remplir tous les champs pour ajouter un personnel.", "Ajout", MessageBoxButton.OK, MessageBoxImage.Warning);
 
-                personnelSelectionnee.Update();
-                gestion.Refresh();
-                lvPersonnel.ItemsSource = gestion.LesPersonnels;
+                }
+                else
+                {
+                                    personnelSelectionnee.Nom = nouveauNom;
+                                    personnelSelectionnee.Prenom = nouveauPrenom;
+                                    personnelSelectionnee.Email = nouveauEmail;
+                                    personnelSelectionnee.Update();
+                                    gestion.Refresh();
+                                    lvPersonnel.ItemsSource = gestion.LesPersonnels;
 
-                txtNom.Text = "";
-                txtPrenom.Text = "";
-                txtEmail.Text = "";
+                                    txtNom.Text = "";
+                                    txtPrenom.Text = "";
+                                    txtEmail.Text = "";
+                             
+                }
             }
             else
                 MessageBox.Show("Veuillez de séléctionner dans la liste un personnel à modifier", "Modification", MessageBoxButton.OK, MessageBoxImage.Warning);

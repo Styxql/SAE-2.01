@@ -46,9 +46,11 @@ namespace MATINFO
 
             set
             {
-                this.nom = value;
+                this.nom = value.ToUpper();
             }
         }
+
+        
 
         public string Prenom
         {
@@ -59,9 +61,15 @@ namespace MATINFO
 
             set
             {
-                this.prenom = value;
+                if (value != null)
+                {
+                    this.prenom = char.ToUpper(value[0]) + value.Substring(1);
+                }
+                else this.prenom = "";
+            
             }
         }
+
 
         public string Email
         {
