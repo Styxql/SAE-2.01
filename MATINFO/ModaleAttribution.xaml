@@ -99,7 +99,7 @@
                     <GridView>
                         <GridViewColumn
                             Width="auto"
-                            DisplayMemberBinding="{Binding Path=Materiel.Nom_materiel}"
+                            DisplayMemberBinding="{Binding Path=Materiel.Ref_constructeur}"
                             Header="Materiel" />
                         <GridViewColumn
                             Width="auto"
@@ -190,7 +190,7 @@
             ItemsSource="{Binding Path=LesMateriels}">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
-                    <ComboBoxItem Content="{Binding Nom_materiel}" />
+                    <ComboBoxItem Content="{Binding Ref_constructeur}" />
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
