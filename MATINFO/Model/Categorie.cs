@@ -21,10 +21,7 @@ namespace MATINFO
         /// <summary>
         /// Constructeur par défaut de la classe Categorie.
         /// </summary>
-        public Categorie()
-        {
-
-        }
+      
 
         /// <summary>
         /// Constructeur de la classe Categorie.

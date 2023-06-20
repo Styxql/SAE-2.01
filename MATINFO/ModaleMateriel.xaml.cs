@@ -63,9 +63,11 @@ namespace MATINFO
                 txtNomMat.Text = "";
                 txtRef.Text = "";
                 cbMateriel.SelectedItem = null;
+               
+
 
             }
-            
+
         }
 
         private void cbFiltre_SelectionChanged(object sender, SelectionChangedEventArgs e)

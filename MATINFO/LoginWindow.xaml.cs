@@ -43,7 +43,7 @@ namespace MATINFO
         
         private async void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            if (access.VerifyUserCredentials(usernameTextBox.Text, passwordBox.Password))
+            if (access.VerificationUtilisateur(usernameTextBox.Text, passwordBox.Password))
             {
                 lbInformation.Text = "";
                 progressBar.Visibility = Visibility.Visible;

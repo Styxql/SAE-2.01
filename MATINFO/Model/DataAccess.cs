@@ -129,7 +129,7 @@ namespace MATINFO.Model /// A MODIFIER SI VOTRE PROJET A UN AUTRE NOM
           }
       }
 
-        public bool VerifyUserCredentials(string username, string password)
+        public bool VerificationUtilisateur(string username, string password)
         {
             string connectionString = "Server=51.83.36.122;port=5432;Database=ovelm;Search Path=sae201;uid=de_hug;password=BWMFtf;"; 
             string query = "SELECT login, mot_de_passe FROM utilisateurs;";
