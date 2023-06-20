@@ -68,19 +68,32 @@ namespace MATINFO
                 string nouveauNom = tbSaisie.Text;
 
               
-                categorieSelectionnee.Nomcategorie = nouveauNom;
-
-               
-                categorieSelectionnee.Update();
 
               
-                GestionCategorie.Refresh();
+                if (string.IsNullOrEmpty(nouveauNom))
+                {
+                    MessageBox.Show("Veuillez remplir tous les champs pour ajouter un materiel.", "Ajout", MessageBoxButton.OK, MessageBoxImage.Warning);
 
-         
-                tbSaisie.Text = "";
-                lvCategorie.ItemsSource = gestion.LesCategories;
+                }
+                else if(!string.IsNullOrEmpty(nouveauNom)) 
+                {
+                    categorieSelectionnee.Nomcategorie = nouveauNom;
 
+
+                    categorieSelectionnee.Update();
+
+
+                    GestionCategorie.Refresh();
+
+
+                    tbSaisie.Text = "";
+                    lvCategorie.ItemsSource = gestion.LesCategories;
+                }
             }
+            else
+                MessageBox.Show("Veuillez de séléctionner dans la liste un personnel à modifier", "Modification", MessageBoxButton.OK, MessageBoxImage.Warning);
+
+        
         }
         private void btSupprimer_Click(object sender, RoutedEventArgs e)
         {
