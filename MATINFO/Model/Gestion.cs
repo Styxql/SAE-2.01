@@ -54,6 +54,11 @@ namespace MATINFO.Model
             return filtreAttributions;
         }
 
+        /// <summary>
+        /// Fait un filtrage des matériels selon la categorie spécifiée.
+        /// </summary>
+        /// <param name="categorie">La categorie pour laquelle effectuer le filtrage des materiels</param>
+        /// <returns>Retourne une collection de materiels filtrées</returns>
         public ObservableCollection<Materiel> FiltrageMateriel(Categorie categorie)
         {
             ObservableCollection<Materiel> filtreMateriel = new ObservableCollection<Materiel>(
