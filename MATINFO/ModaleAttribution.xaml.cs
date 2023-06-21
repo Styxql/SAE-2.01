@@ -18,17 +18,17 @@ namespace MATINFO
 
 
     /// <summary>
-    /// Logique d'interaction pour la fenêtre de la modale d'attribution.
+    /// Logique d'interaction pour la fenêtre de la modale d'attribution
     /// </summary>
     public partial class ModaleAttribution : Window
     {
         /// <summary>
-        /// Obtient ou définit les données de gestion.
+        /// Obtient ou définit les données de gestion
         /// </summary>
         public Gestion GestionData { get; set; }
 
         /// <summary>
-        /// Initialise une nouvelle instance de la classe <see cref="ModaleAttribution"/>.
+        /// Initialise une nouvelle instance de la classe <see cref="ModaleAttribution"/>
         /// </summary>
         public ModaleAttribution()
         {

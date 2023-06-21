@@ -22,7 +22,7 @@ namespace MATINFO
         private Gestion gestionPersonnel;
 
         /// <summary>
-        /// Obtient ou définit les données de gestion du personnel.
+        /// Obtient ou définit les données de gestion du personnel
         /// </summary>
         public Gestion GestionPersonnel
         {
@@ -37,7 +37,7 @@ namespace MATINFO
         }
 
         /// <summary>
-        /// Initialise une nouvelle instance de la classe <see cref="ModalePersonnel"/>.
+        /// Initialise une nouvelle instance de la classe <see cref="ModalePersonnel"/>
         /// </summary>
         public ModalePersonnel()
         {

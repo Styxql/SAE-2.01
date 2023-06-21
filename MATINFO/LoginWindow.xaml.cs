@@ -18,14 +18,14 @@ using System.Windows.Shapes;
 namespace MATINFO
 {
     /// <summary>
-    /// Fenêtre de connexion.
+    /// Fenêtre de connexion
     /// </summary>
     public partial class LoginWindow : Window
     {
         DataAccess access = new DataAccess();
 
         /// <summary>
-        /// Initialise une nouvelle instance de la classe LoginWindow.
+        /// Initialise une nouvelle instance de la classe LoginWindow
         /// </summary>
         public LoginWindow()
         {
