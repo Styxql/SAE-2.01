@@ -9,12 +9,12 @@ using System.Windows.Controls;
 namespace MATINFO
 {
     /// <summary>
-    /// Logique d'interaction pour la fenêtre de la modale de catégorie.
+    /// Logique d'interaction pour la fenêtre de la modale de catégorie
     /// </summary>
     public partial class ModaleCategorie : Window
     {
         /// <summary>
-        /// Obtient ou définit les données de gestion de catégorie.
+        /// Obtient ou définit les données de gestion de catégorie
         /// </summary>
         public Gestion GestionCategorie { get; set; }
 

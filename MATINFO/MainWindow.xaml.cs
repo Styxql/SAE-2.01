@@ -22,7 +22,7 @@ using System.Collections.ObjectModel;
 namespace MATINFO
 {
     /// <summary>
-    /// Logique d'interaction pour MainWindow.xaml
+    /// Classe fenêtre MainWindow
     /// </summary>
     public partial class MainWindow : Window
     {

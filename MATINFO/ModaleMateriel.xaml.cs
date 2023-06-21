@@ -20,7 +20,7 @@ namespace MATINFO
     public partial class ModaleMateriel : Window
     {
         /// <summary>
-        /// Obtient ou définit les données de gestion.
+        /// Obtient ou définit les données de gestion
         /// </summary>
         public Gestion GestionData { get; set; }
 
