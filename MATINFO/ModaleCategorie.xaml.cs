@@ -72,7 +72,7 @@ private void Modale_Closing(object sender, System.ComponentModel.CancelEventArgs
                     MessageBox.Show("Veuillez remplir tous les champs pour modifier une categorie.", "Modification", MessageBoxButton.OK, MessageBoxImage.Warning);
 
                 }
-                else if(!string.IsNullOrEmpty(nouveauNom)) 
+                else
                 {
                     categorieSelectionnee.Nomcategorie = nouveauNom;
 

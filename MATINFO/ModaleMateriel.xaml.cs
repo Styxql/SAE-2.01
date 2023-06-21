@@ -63,7 +63,8 @@ namespace MATINFO
                 txtNomMat.Text = "";
                 txtRef.Text = "";
                 cbMateriel.SelectedItem = null;
-               
+                
+
 
 
             }
@@ -110,6 +111,7 @@ namespace MATINFO
                     txtNomMat.Text = "";
                     txtRef.Text = "";
                     cbMateriel.SelectedItem = null;
+                    
                 }
             }
         }
