@@ -12,7 +12,7 @@ using System.Windows.Markup;
 namespace MATINFO
 {
     /// <summary>
-    /// Représente une classe pour gérer les informations relatives au personnel.
+    /// Représente une classe pour gérer les informations relatives au personnel
     /// </summary>
     public class Personnel : Crud<Personnel>
     {
@@ -22,7 +22,7 @@ namespace MATINFO
         private string email;
 
         /// <summary>
-        /// Initialise une nouvelle instance de la classe Personnel avec les valeurs par défaut.
+        /// Initialise une nouvelle instance de la classe Personnel avec les valeurs par défaut
         /// </summary>
         public Personnel()
         {
@@ -30,12 +30,12 @@ namespace MATINFO
         }
 
         /// <summary>
-        /// Initialise une nouvelle instance de la classe Personnel avec les valeurs spécifiées.
+        /// Initialise une nouvelle instance de la classe Personnel avec les valeurs spécifiées
         /// </summary>
-        /// <param name="id_personnel">L'identifiant du personnel.</param>
+        /// <param name="id_personnel">L'identifiant du personnel</param>
         /// <param name="nom">Le nom du personnel.</param>
-        /// <param name="prenom">Le prénom du personnel.</param>
-        /// <param name="email">L'adresse e-mail du personnel.</param>
+        /// <param name="prenom">Le prénom du personnel</param>
+        /// <param name="email">L'adresse e-mail du personnel</param>
         public Personnel(int id_personnel, string nom, string prenom, string email)
         {
             this.Id_personnel = id_personnel;
@@ -45,11 +45,11 @@ namespace MATINFO
         }
 
         /// <summary>
-        /// Initialise une nouvelle instance de la classe Personnel avec les valeurs spécifiées (sans l'identifiant).
+        /// Initialise une nouvelle instance de la classe Personnel avec les valeurs spécifiées (sans l'identifiant)
         /// </summary>
-        /// <param name="nom">Le nom du personnel.</param>
-        /// <param name="prenom">Le prénom du personnel.</param>
-        /// <param name="email">L'adresse e-mail du personnel.</param>
+        /// <param name="nom">Le nom du personnel</param>
+        /// <param name="prenom">Le prénom du personnel</param>
+        /// <param name="email">L'adresse e-mail du personnel</param>
         public Personnel(string nom, string prenom, string email)
         {
             this.Id_personnel = id_personnel;
@@ -59,7 +59,7 @@ namespace MATINFO
         }
 
         /// <summary>
-        /// Obtient ou définit le nom du personnel.
+        /// Définit le nom du personnel
         /// </summary>
         public string Nom
         {
@@ -75,7 +75,7 @@ namespace MATINFO
         }
 
         /// <summary>
-        /// Obtient ou définit le prénom du personnel.
+        /// Définit le prénom du personnel
         /// </summary>
         public string Prenom
         {
@@ -98,7 +98,7 @@ namespace MATINFO
         }
 
         /// <summary>
-        /// Obtient ou définit l'adresse e-mail du personnel.
+        /// Définit l'adresse e-mail du personnel
         /// </summary>
         public string Email
         {
@@ -114,7 +114,7 @@ namespace MATINFO
         }
 
         /// <summary>
-        /// Obtient ou définit l'identifiant du personnel.
+        /// Définit l'identifiant du personnel
         /// </summary>
         public int Id_personnel
         {
@@ -130,9 +130,9 @@ namespace MATINFO
         }
 
         /// <summary>
-        /// Récupère tous les personnels depuis la source de données.
+        /// Récupère tous les personnels depuis la source de données
         /// </summary>
-        /// <returns>Retourne une collection de personnels.</returns>
+        /// <returns>Retourne une collection de personnels</returns>
         public ObservableCollection<Personnel> FindAll()
         {
             ObservableCollection<Personnel> lesPersonnels = new ObservableCollection<Personnel>();
@@ -151,7 +151,7 @@ namespace MATINFO
         }
 
         /// <summary>
-        /// Crée un nouveau personnel dans la source de données.
+        /// Crée un nouveau personnel dans la source de données
         /// </summary>
         public void Create()
         {
@@ -161,7 +161,7 @@ namespace MATINFO
         }
 
         /// <summary>
-        /// Lit les informations du personnel depuis la source de données.
+        /// Lit les informations du personnel depuis la source de données
         /// </summary>
         public void Read()
         {
@@ -173,7 +173,7 @@ namespace MATINFO
         }
 
         /// <summary>
-        /// Met à jour les informations du personnel dans la source de données.
+        /// Met à jour les informations du personnel dans la source de données
         /// </summary>
         public void Update()
         {
@@ -183,7 +183,7 @@ namespace MATINFO
         }
 
         /// <summary>
-        /// Supprime le personnel de la source de données.
+        /// Supprime le personnel de la source de données
         /// </summary>
         public void Delete()
         {
@@ -193,10 +193,10 @@ namespace MATINFO
         }
 
         /// <summary>
-        /// Recherche les personnels en fonction des critères de sélection.
+        /// Recherche les personnels selon les critères de sélection
         /// </summary>
-        /// <param name="criteres">Les critères de sélection.</param>
-        /// <returns>Retourne une collection de personnels correspondant aux critères de sélection.</returns>
+        /// <param name="criteres">Les critères de sélection</param>
+        /// <returns>Retourne une collection de personnels correspondant aux critères de sélection</returns>
         public ObservableCollection<Personnel> FindBySelection(string criteres)
         {
             throw new NotImplementedException();
