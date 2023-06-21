@@ -8,32 +8,32 @@ using System.Threading.Tasks;
 namespace MATINFO.Model
 {
     /// <summary>
-    /// Classe de gestion principale pour la manipulation des données.
+    /// Classe de gestion principale pour la manipulation des données
     /// </summary>
     public class Gestion
     {
         /// <summary>
-        /// Obtient ou définit la collection des catégories.
+        /// Définit la collection des catégories
         /// </summary>
         public ObservableCollection<Categorie> LesCategories { get; set; }
 
         /// <summary>
-        /// Obtient ou définit la collection des personnels.
+        /// Définit la collection des personnels
         /// </summary>
         public ObservableCollection<Personnel> LesPersonnels { get; set; }
 
         /// <summary>
-        /// Obtient ou définit la collection des matériels.
+        /// Définit la collection des matériels
         /// </summary>
         public ObservableCollection<Materiel> LesMateriels { get; set; }
 
         /// <summary>
-        /// Obtient ou définit la collection des attributions.
+        /// Définit la collection des attributions
         /// </summary>
         public ObservableCollection<Attribution> LesAttributions { get; set; }
 
         /// <summary>
-        /// Constructeur de la classe Gestion.
+        /// Constructeur de la classe Gestion
         /// </summary>
         public Gestion()
         {
@@ -41,10 +41,10 @@ namespace MATINFO.Model
         }
 
         /// <summary>
-        /// Effectue un filtrage des attributions en fonction du matériel spécifié.
+        /// Fait un filtrage des attributions selon le matériel spécifié.
         /// </summary>
-        /// <param name="materiel">Le matériel pour lequel effectuer le filtrage des attributions.</param>
-        /// <returns>Retourne une collection d'attributions filtrées.</returns>
+        /// <param name="materiel">Le matériel pour lequel effectuer le filtrage des attributions</param>
+        /// <returns>Retourne une collection d'attributions filtrées</returns>
         public ObservableCollection<Attribution> FiltrageAttibution(Materiel materiel)
         {
             ObservableCollection<Attribution> filtreAttributions = new ObservableCollection<Attribution>(
@@ -66,7 +66,7 @@ namespace MATINFO.Model
 
 
         /// <summary>
-        /// Actualise les collections de données en récupérant les données à partir des sources.
+        /// Actualise les collections de données en récupérant les données à partir des sources
         /// </summary>
         public void Refresh()
         {

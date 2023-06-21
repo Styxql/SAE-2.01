@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace MATINFO
 {
     /// <summary>
-    /// Classe représentant une attribution de matériel à un personnel.
+    /// Classe représentant une attribution de matériel à un personnel
     /// </summary>
     public class Attribution : Crud<Attribution>
     {
@@ -23,7 +23,7 @@ namespace MATINFO
         private Materiel materiel;
 
         /// <summary>
-        /// Constructeur par défaut de la classe Attribution.
+        /// Constructeur par défaut de la classe Attribution
         /// </summary>
         public Attribution()
         {
@@ -31,12 +31,12 @@ namespace MATINFO
         }
 
         /// <summary>
-        /// Constructeur de la classe Attribution.
+        /// Constructeur de la classe Attribution
         /// </summary>
-        /// <param name="id_personnel">L'identifiant du personnel concerné par l'attribution.</param>
-        /// <param name="id_materiel">L'identifiant du matériel attribué.</param>
-        /// <param name="dateAttribution">La date d'attribution du matériel.</param>
-        /// <param name="commentaireAttribution">Le commentaire associé à l'attribution.</param>
+        /// <param name="id_personnel">L'identifiant du personnel concerné par l'attribution</param>
+        /// <param name="id_materiel">L'identifiant du matériel attribué</param>
+        /// <param name="dateAttribution">La date d'attribution du matériel</param>
+        /// <param name="commentaireAttribution">Le commentaire associé à l'attribution</param>
         public Attribution(int id_personnel, int id_materiel, DateTime dateAttribution, string commentaireAttribution)
         {
             this.Id_personnel = id_personnel;
@@ -47,7 +47,7 @@ namespace MATINFO
         }
 
         /// <summary>
-        /// Obtient ou définit l'identifiant du personnel concerné par l'attribution.
+        /// Définit l'identifiant du personnel concerné par l'attribution
         /// </summary>
         public int Id_personnel
         {
@@ -63,7 +63,7 @@ namespace MATINFO
         }
 
         /// <summary>
-        /// Obtient ou définit l'identifiant du matériel attribué.
+        /// Définit l'identifiant du matériel attribué
         /// </summary>
         public int Id_materiel
         {
@@ -79,7 +79,7 @@ namespace MATINFO
         }
 
         /// <summary>
-        /// Obtient ou définit la date d'attribution du matériel.
+        /// Définit la date d'attribution du matériel
         /// </summary>
         public DateTime DateAttribution
         {
@@ -95,7 +95,7 @@ namespace MATINFO
         }
 
         /// <summary>
-        /// Obtient ou définit le commentaire associé à l'attribution.
+        /// Définit le commentaire associé à l'attribution
         /// </summary>
         public string CommentaireAttribution
         {
@@ -111,7 +111,7 @@ namespace MATINFO
         }
 
         /// <summary>
-        /// Obtient ou définit le personnel concerné par l'attribution.
+        /// Définit le personnel concerné par l'attribution
         /// </summary>
         public Personnel Personnel
         {
@@ -127,7 +127,7 @@ namespace MATINFO
         }
 
         /// <summary>
-        /// Obtient ou définit le matériel attribué.
+        /// Définit le matériel attribué
         /// </summary>
         public Materiel Materiel
         {
@@ -145,9 +145,9 @@ namespace MATINFO
        
 
         /// <summary>
-        /// Retourne toutes les attributions existantes.
+        /// Retourne toutes les attributions existantes
         /// </summary>
-        /// <returns>Une collection observable contenant toutes les attributions.</returns>
+        /// <returns>Une collection observable contenant toutes les attributions</returns>
         public ObservableCollection<Attribution> FindAll()
         {
             ObservableCollection<Attribution> lesAttributions = new ObservableCollection<Attribution>();
@@ -166,7 +166,7 @@ namespace MATINFO
         }
 
         /// <summary>
-        /// Crée une nouvelle attribution dans la base de données.
+        /// Création d'une nouvelle attribution dans la BDD
         /// </summary>
         public void Create()
         {
@@ -176,7 +176,7 @@ namespace MATINFO
         }
 
         /// <summary>
-        /// Supprime l'attribution de la base de données.
+        /// Supprime l'attribution de la base de données
         /// </summary>
         public void Delete()
         {
@@ -186,17 +186,17 @@ namespace MATINFO
         }
 
         /// <summary>
-        /// Recherche les attributions en fonction des critères spécifiés.
+        /// Recherche les attributions selon les critères spécifiés
         /// </summary>
-        /// <param name="criteres">Les critères de recherche.</param>
-        /// <returns>Une collection observable contenant les attributions correspondantes aux critères de recherche.</returns>
+        /// <param name="criteres">Les critères de recherche</param>
+        /// <returns>Une collection observable contenant les attributions correspondantes aux critères de recherche</returns>
         public ObservableCollection<Attribution> FindBySelection(string criteres)
         {
             throw new NotImplementedException();
         }
 
         /// <summary>
-        /// Lit les détails de l'attribution à partir de la base de données.
+        /// Lit les détails de l'attribution à partir de la base de données
         /// </summary>
         public void Read()
         {
@@ -204,7 +204,7 @@ namespace MATINFO
         }
 
         /// <summary>
-        /// Met à jour les informations de l'attribution dans la base de données.
+        /// Met à jour les informations de l'attribution dans la base de données
         /// </summary>
         public void Update()
         {
