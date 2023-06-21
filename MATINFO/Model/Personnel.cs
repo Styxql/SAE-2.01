@@ -7,6 +7,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Markup;
 
 namespace MATINFO
 {
@@ -166,7 +167,15 @@ namespace MATINFO
         {
             DataAccess accesBD = new DataAccess();
             string sql = $"select idpersonnel, nompersonnel, prenompersonnel, emailpersonnel from personnel where idpersonnel = {Id_personnel}";
-            accesBD.GetData(sql);
+            DataTable datas  = accesBD.GetData(sql);
+
+            if (datas != null && datas.Rows.Count > 0)
+            {
+                DataRow row = datas.Rows[0];
+                this.Nom = (string)row["nompersonnel"];
+                this.Prenom = (string)row["prenompersonnel"];
+                this.Email = (string)row["emailpersonnel"];
+            }
         }
 
         /// <summary>
