@@ -13,93 +13,57 @@ namespace MATINFO.Tests
     [TestClass()]
     public class PersonnelTests
     {
-        
+       
 
         [TestMethod()]
-        public void FindAllTest()
-        {
-
-        }
-
-        [TestMethod]
         public void CreateTest()
         {
-            // Arrange
             Personnel personnel1 = new Personnel("OVEL", "Mattéo", "matteoovel@gmail.com");
-
-            // Act
             personnel1.Create();
-            Personnel personnel2 = new Personnel();
-            personnel2.Id_personnel = personnel1.Id_personnel;
+            Personnel personnel2 = new Personnel("OVEL", "Mattéo", "matteoovel@gmail.com");
             personnel2.Read();
+            Assert.AreEqual(personnel1, personnel2, "Test de creation d'un Personnel");
 
-            // Assert
-            Assert.AreEqual(personnel1.Nom, personnel2.Nom, "Le nom du personnel n'est pas correct.");
-            Assert.AreEqual(personnel1.Prenom, personnel2.Prenom, "Le prénom du personnel n'est pas correct.");
-            Assert.AreEqual(personnel1.Email, personnel2.Email, "L'adresse e-mail du personnel n'est pas correcte.");
         }
 
-        [TestMethod]
+        [TestMethod()]
         public void DeleteTest()
         {
-            // Arrange
             Personnel personnel1 = new Personnel("DE SOUSA", "Hugo", "hugo.desousa@gmail.com");
             personnel1.Create();
-
-            // Act
             personnel1.Delete();
-            Personnel personnel2 = new Personnel();
-            personnel2.Id_personnel = personnel1.Id_personnel;
+            Personnel personnel2 = new Personnel("DE SOUSA", "Hugo", "hugo.desousa@gmail.com");
             personnel2.Read();
+            Assert.AreEqual(0, personnel2.Id_personnel, "Test de suppression d'un Personnel");
 
-            // Assert
-            Assert.AreEqual(0, personnel2.Id_personnel, "La suppression du personnel a échoué.");
         }
 
-        [TestMethod]
+        [TestMethod()]
         public void ReadTest()
         {
-            // Arrange
             Personnel personnel1 = new Personnel("LAVAL", "Quentin", "Quentin.laval@gmail.com");
             personnel1.Create();
-
-            // Act
-            Personnel personnel2 = new Personnel();
-            personnel2.Id_personnel = personnel1.Id_personnel;
+            Personnel personnel2 = new Personnel("LAVAL", "Quentin", "Quentin.laval@gmail.com");
             personnel2.Read();
+            Assert.AreEqual(personnel1, personnel2, "Test de lecture d'un Personnel");
 
-            // Assert
-            Assert.AreEqual(personnel1.Nom, personnel2.Nom, "Le nom du personnel n'est pas correct.");
-            Assert.AreEqual(personnel1.Prenom, personnel2.Prenom, "Le prénom du personnel n'est pas correct.");
-            Assert.AreEqual(personnel1.Email, personnel2.Email, "L'adresse e-mail du personnel n'est pas correcte.");
         }
 
-        [TestMethod]
+        [TestMethod()]
         public void UpdateTest()
         {
-            // Arrange
             Personnel personnel1 = new Personnel("DIARD", "Benoît", "benoît.diard@gmail.com");
             personnel1.Create();
             personnel1.Prenom = "Nathalie";
             personnel1.Nom = "GRUSON";
             personnel1.Email = "nath.gruson@gmail.com";
-
-            // Act
             personnel1.Update();
-            Personnel personnel2 = new Personnel();
-            personnel2.Id_personnel = personnel1.Id_personnel;
+            Personnel personnel2 = new Personnel("GRUSON", "Nathalie", "nath.gruson@gmail.com");
             personnel2.Read();
-
-            // Assert
-            Assert.AreEqual(personnel1.Nom, personnel2.Nom, "La mise à jour du nom du personnel a échoué.");
-            Assert.AreEqual(personnel1.Prenom, personnel2.Prenom, "La mise à jour du prénom du personnel a échoué.");
-            Assert.AreEqual(personnel1.Email, personnel2.Email, "La mise à jour de l'adresse e-mail du personnel a échoué.");
-        }
-
-        [TestMethod()]
-        public void FindBySelectionTest()
-        {
+            Assert.AreEqual(personnel2, personnel1, "Test de mise à jour d'un Personnel");
 
         }
+
+      
     }
 }
